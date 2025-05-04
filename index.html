@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graduation Commencement | Aashritha Sandiri</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Global Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      animation: bgAnimation 15s ease infinite;
+      overflow-x: hidden;
+      color: #333;
+      min-height: 100vh;
+      position: relative;
+    }
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    /* Falling Mortarboards with varied speeds */
+    .mortarboard {
+      position: absolute;
+      font-size: 1.8rem;
+      color: #f9a825;
+      animation: fall var(--duration) linear infinite;
+      top: -5%;
+    }
+    @keyframes fall {
+      to { transform: translateX(var(--translateX, 100vw)) translateY(120vh) rotate(360deg); opacity: 0; }
+    }
+    /* Decorative Shapes */
+    .blob {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      top: -50px;
+      right: -100px;
+      animation: blobMove 20s ease-in-out infinite;
+    }
+    @keyframes blobMove {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(-50px,50px) scale(1.2); }
+    }
+    /* Main Card */
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      max-width: 700px;
+      margin: 5vh auto;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: popIn 1s ease-out;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.85); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    /* Heading with Colorful Gradient Text */
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.8rem;
+      background: linear-gradient(90deg, #ff416c, #ff4b2b, #fbc2eb, #a18cd1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    /* Countdown Timer */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .countdown div {
+      background: #ff4b2b;
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      min-width: 60px;
+      animation: fadeIn 2s ease-out;
+    }
+    .countdown span {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .countdown small {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    /* Intro Invitation */
+    .intro {
+      font-size: 1.1rem;
+      margin: 1rem 0 2rem;
+      line-height: 1.6;
+      color: #444;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    /* Details & Buttons */
+    .details, .livestream {
+      margin-bottom: 1.5rem;
+    }
+    .details p, .livestream p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+    }
+    .btn-live {
+      background: #ff416c;
+      color: #fff;
+    }
+    .btn-calendar {
+      background: #fff;
+      color: #ff416c;
+      box-shadow: inset 0 0 0 2px #ff416c;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    /* Map Hover Effect */
+    .map-container {
+      margin-top: 2rem;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 360px;
+      transition: transform 0.6s ease;
+      display: block;
+    }
+    .map-container iframe:hover {
+      transform: scale(1.04);
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Blobs -->
+  <div class="blob"></div>
+  <!-- Decorative Mortarboards -->
+  <div class="mortarboard" style="--duration:7s; --translateX:80vw; left:15%; animation-delay:0s;">🎓</div>
+  <div class="mortarboard" style="--duration:9s; --translateX:-80vw; left:50%; animation-delay:2s;">🎓</div>
+  <div class="mortarboard" style="--duration:8s; --translateX:100vw; left:75%; animation-delay:1s;">🎓</div>
+
+  <div class="card">
+    <h1>Graduation Commencement</h1>
+    <div class="countdown" id="countdown">
+      <div><span id="days">0</span><small>Days</small></div>
+      <div><span id="hours">0</span><small>Hours</small></div>
+      <div><span id="minutes">0</span><small>Minutes</small></div>
+      <div><span id="seconds">0</span><small>Seconds</small></div>
+    </div>
+    <p class="intro">Join me as I take the next step across the stage—your presence, in person or online, means the world to me!</p>
+    <div class="details">
+      <p><strong>Date:</strong> May 11, 2025</p>
+      <p><strong>Time:</strong> 8:00 PM CST</p>
+      <p><strong>Venue:</strong> UNT Coliseum</p>
+      <p>601 N Texas Blvd, Denton, TX 76201</p>
+      <p class="entry-info">Enter campus via North Texas Boulevard off I-35E and park in Lot 20 (west of the Coliseum).</p>
+    </div>
+    <div class="button-group">
+      <a href="https://www.youtube.com/live/CrpzPkxhfB8" target="_blank" rel="noopener" class="btn btn-live">Watch Live</a>
+      <a href="#" class="btn btn-calendar">Add to Calendar</a>
+    </div>
+    <div class="livestream">
+      <p><strong>Time (IST):</strong> 6:30 AM, May 12, 2025</p>
+    </div>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps?q=601+N+Texas+Blvd,+Denton,+TX+76201&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+  <!-- Countdown Script -->
+  <script>
+    const eventDate = new Date('May 11, 2025 20:00:00 GMT-0600');
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eventDate - now;
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      daysEl.textContent = d;
+      hoursEl.textContent = h;
+      minutesEl.textContent = m;
+      secondsEl.textContent = s;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    // Add to Calendar (iCal file generation)
+    document.querySelector('.btn-calendar').addEventListener('click', () => {
+      const ics = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+DTSTART:20250512T020000Z
+SUMMARY:Graduation Commencement - Aashritha Sandiri
+LOCATION:UNT Coliseum, Denton, TX
+END:VEVENT
+END:VCALENDAR`;
+      const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'graduation_commencement.ics';
+      link.click();
+    });
+  </script>
+</body>
+</html>
